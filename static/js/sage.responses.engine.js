@@ -3,10 +3,24 @@
 (function ($) {
     var guidence_template = '<div class="row"><div class="col-md-7 text-left guidence" ><h3>TITLE</h3></div></div><div class="row"><div class="col-md-7 text-left"><h6>TEXT</h6></div></div>'
     var link_template = '<div class="row"><div class="col-md-7 text-left link"><a href="URL" target="_blank">TEXT</a></div></div>';
+    var responses;
+
+    var tryLoadResponses = function(callback) {
+        var test = (window.sfcoronavirus) && (window.sfcoronavirus.responses);
+
+        setTimeout(function () {
+            if (!test) {
+                tryLoadResponses(callback);
+            } else {
+                responses = window.sfcoronavirus.responses;
+                callback();
+            }
+        }, 200)
+    };
+
     var fillPage = function () {
         var answers = JSON.parse(localStorage.getItem('answers'));
         var guidences = '';
-        var responses = input.responses;
 
         for (var i = 0; i < responses.length; i++) {
             var r = responses[i];
@@ -66,7 +80,7 @@
 
     var init = function () {
         localStorage.setItem('page', '1');
-        fillPage();
+        tryLoadResponses(fillPage);
     }
 
     $(document).ready(function () {
