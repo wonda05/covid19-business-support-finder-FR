@@ -8,8 +8,12 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get('/result', function(req, res) {
-    res.sendFile(path.join(__dirname + '/result.html'));
+app.get('/questionnaire', function(req, res) {
+    res.sendFile(path.join(__dirname + '/questionnaire.html'));
+});
+
+app.get('/guidance', function(req, res) {
+    res.sendFile(path.join(__dirname + '/guidance.html'));
 });
 
 app.listen(8080);

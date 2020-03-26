@@ -54,7 +54,7 @@
     }
 
     let finish = function () {
-        window.location.href = "/result";
+        window.location.href = "/guidance";
     }
 
     // answers = ['1a','2b','3c'];
