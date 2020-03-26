@@ -12,16 +12,31 @@
         loadFile('responses');
     };
 
+    var stripQuotes = function(object) {
+        var keys = Object.keys(object);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var value = object[key];
+            if (typeof value === 'string' && value.charAt(0) === '"' && value.charAt(value.length-1) === '"') {
+                object[key] = value.substring(1, value.length-1);
+            }
+        }
+
+        return object;
+    };
+
     var transformers = {
         // transforms questions.csv to the model to be consumed by the UI
         questions: function(content) {
             $('#parsed-file').append('<h2>Questions</h2>');
 
-            var array = []
+            var array = [];
 
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
                 var original = content[i];
+
+                stripQuotes(original);
 
                 // map to format in model.json
                 var transformedQuestion = {
@@ -33,7 +48,7 @@
                     type: original.answerType,
                     prerequisites: original.prerequisites ? original.prerequisites.split(',') : [],
                     answers: [] // populated below
-                }
+                };
 
                 // the number of questions can vary - detecting it here to keep CSV file flexible
                 var answerCount = (function() {
@@ -51,7 +66,7 @@
                         var answer = {
                             text: original['answerText' + j],
                             value: original['answerValue' + j]
-                        }
+                        };
 
                         transformedQuestion.answers.push(answer);
                     }
@@ -69,11 +84,13 @@
         responses: function(content) {
             $('#parsed-file').append('<h2>Responses</h2>');
 
-            var array = []
+            var array = [];
 
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
                 var original = content[i];
+
+                stripQuotes(original);
 
                 // map to format in model.json
                 var transformedResponse = {
@@ -84,7 +101,7 @@
                     },
                     prerequisites: original.prerequisites ? original.prerequisites.split(',') : [],
                     links: [] // populated below
-                }
+                };
 
                 // the number of questions can vary - detecting it here to keep CSV file flexible
                 var linkCount = (function() {
@@ -102,7 +119,7 @@
                         var link = {
                             text: original['contentLabel' + j],
                             url: original['contentURL' + j]
-                        }
+                        };
 
                         transformedResponse.links.push(link);
                     }
