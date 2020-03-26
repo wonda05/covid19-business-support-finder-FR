@@ -16,7 +16,29 @@
             localStorage.setItem('answers', JSON.stringify(answers));
             pageUp();
             fillPage();
+        } else {
+            showAlert();
         }
+    }
+
+    var showAlert = function() {
+        let alertMessage = 'Please make a choice.'
+        $("#alert_place").animate({
+            height: '+=72px'
+        }, 300);
+       $('<div class="alert alert-danger customAlert">' +
+                '<button type="button" class="close" data-dismiss="alert">' +
+                '&times;</button>'+alertMessage+'</div>').hide().appendTo('#alert_place').fadeIn(1000);
+      
+      $(".alert").delay(3000).fadeOut(
+      "normal",
+      function(){
+        $(this).remove();
+      });
+      
+       $("#alert_place").delay(4000).animate({
+            height: '-=72px'
+        }, 300);
     }
 
     var checkAnswers = function (form_data) {
@@ -67,7 +89,7 @@
     }
 
     var finish = function () {
-        window.location.href = "/static/pages/guidance.html";
+        window.location.href = "/guidance.html";
     }
 
     // answers = ['1a','2b','3c'];
