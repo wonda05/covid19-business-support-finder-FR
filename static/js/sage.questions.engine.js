@@ -2,10 +2,10 @@
 
 (function ($) {
     var radio_group_template = '<div class="radio_group">OPTIONS</div>';
-    var radio_template = '<div class="form-check"><input class="form-check-input" type="radio" name="radios" id="KEY" value="VALUE"><label class="form-check-label" for="KEY">TEXT</label></div>';
+    var radio_template = '<div class="form-check"><input class="form-check-input" type="radio" name="radios" id="KEY" value="VALUE"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
     var checkbox_group_template = '<div class="check_group">OPTIONS</div>';
-    var checkbox_template = '<div class="form-check"><input class="form-check-input" type="checkbox" value="VALUE" id="KEY"><label class="form-check-label" for="KEY">TEXT</label></div>';
+    var checkbox_template = '<div class="form-check"><input class="form-check-input" type="checkbox" value="VALUE" id="KEY"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
     var qs;
 
@@ -56,23 +56,25 @@
     };
 
     var showAlert = function () {
-        let alertMessage = 'Please make a choice.'
-        $("#alert_place").animate({
-            height: '+=72px'
-        }, 300);
-        $('<div class="alert alert-danger customAlert">' +
-            '<button type="button" class="close" data-dismiss="alert">' +
-            '&times;</button>' + alertMessage + '</div>').hide().appendTo('#alert_place').fadeIn(1000);
+        if ($(".alert").length === 0) {
+            let alertMessage = 'Please make a choice.'
+            $("#alert_place").animate({
+                height: '+=72px'
+            }, 300);
+            $('<div class="alert alert-danger customAlert">' +
+                '<button type="button" class="close" data-dismiss="alert">' +
+                '&times;</button>' + alertMessage + '</div>').hide().appendTo('#alert_place').fadeIn(1000);
 
-        $(".alert").delay(3000).fadeOut(
-            "normal",
-            function () {
-                $(this).remove();
-            });
+            $(".alert").delay(3000).fadeOut(
+                "normal",
+                function () {
+                    $(this).remove();
+                });
 
-        $("#alert_place").delay(4000).animate({
-            height: '-=72px'
-        }, 300);
+            $("#alert_place").delay(4000).animate({
+                height: '-=72px'
+            }, 300);
+        }
     }
 
     var checkAnswers = function (form_data) {

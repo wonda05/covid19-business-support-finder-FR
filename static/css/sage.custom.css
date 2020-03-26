@@ -16,9 +16,9 @@
 
 .header .logo-container .text-sage {
     border-left-color: #335c6d;
-    color: rgba(0,0,0,.55);
-    border-left: 1px solid rgba(0,0,0,.3);
-    font-family: Adelle-sans,Arial,"Helvetica Neue",Helvetica,sans-serif;
+    color: rgba(0, 0, 0, .55);
+    border-left: 1px solid rgba(0, 0, 0, .3);
+    font-family: Adelle-sans, Arial, "Helvetica Neue", Helvetica, sans-serif;
     font-size: 20px;
     font-weight: 400;
     height: 28px;
@@ -35,16 +35,46 @@
 }
 
 .buttons {
-    background-color: #090 !important;
-    border-color: #090 !important;
+    background-color: #008200 !important;
+    border-color: #008200 !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    color: #FFFFFF !important;
+    width: 150px !important;
+    height: 40px !important;
 }
 
-.radio_group {
-
+.start_button {
+    background-color: #008200 !important;
+    border-color: #008200 !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    color: #FFFFFF !important;
+    width: 180px !important;
+    height: 40px !important;
 }
 
-.check_group {
-    
+.back_button {
+    background-color: #FFFFFF !important;
+    border-color: #008200 !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    color: #008200 !important;
+    width: 180px !important;
+    height: 40px !important;
+}
+
+.radio_group {}
+
+.check_group {}
+
+.label {
+    color: rgba(0, 0, 0, 0.9);
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
 }
 
 .guidences {
