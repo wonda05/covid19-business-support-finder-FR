@@ -91,7 +91,7 @@
     }
 
     $(document).ready(function () {
-        var restartButton = $('#restart')[0];
+        var restartButton = $('#restart_button')[0];
         if (restartButton !== null) {
             restartButton.onclick = restart;
             init();
