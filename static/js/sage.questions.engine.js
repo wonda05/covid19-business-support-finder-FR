@@ -22,8 +22,7 @@
         }, 200)
     };
 
-    var parseAnswers = function () {
-        event.preventDefault();
+    var parseAnswers = function () {        
         var page = localStorage.getItem('page');
         var answers = JSON.parse(localStorage.getItem('answers'));
         var form_data = document.forms['form'].getElementsByTagName('input');
@@ -39,21 +38,36 @@
         } else {
             showAlert();
         }
+        stopPropagation();
     }
 
-    var previousQuestion = function() {
+    var stopPropagation = function() {
         event.preventDefault();
+        setTimeout(function(){
+            $(':focus').blur();
+        }, 100);
+    }
+
+    var previousQuestion = function () {        
         var page = localStorage.getItem('page');
         if (page > 1) {
             var answers = JSON.parse(localStorage.getItem('answers'));
-            var previous_answers = answers.filter(function(answer) {
-                return answer.charAt(0) != page-1;
+            var previous_answers = answers.filter(function (answer) {
+                return answer.charAt(0) != page - 1;
             });
             localStorage.setItem('answers', JSON.stringify(previous_answers));
             pageDown();
             fillPage();
         }
+        stopPropagation();
     };
+
+    var cancel = function () {
+        event.preventDefault();
+        localStorage.setItem('page', '1');
+        localStorage.setItem('answers', JSON.stringify([]));
+        window.location.href = "/";
+    }
 
     var showAlert = function () {
         if ($(".alert").length === 0) {
@@ -136,59 +150,29 @@
         var page = localStorage.getItem('page');
         page = parseInt(page);
         localStorage.setItem('page', ++page);
+        var pqButton = $('#previous_question')[0];
+        if (pqButton !== null) {
+            pqButton.onclick = previousQuestion;
+            pqButton.textContent = 'Previous Question'
+        }
     };
 
     var pageDown = function () {
         var page = localStorage.getItem('page');
         page = parseInt(page);
-            localStorage.setItem('page', --page);
+        localStorage.setItem('page', --page);
+        if (page === 1) {
+            var pqButton = $('#previous_question')[0];
+            if (pqButton !== null) {
+                pqButton.onclick = cancel;
+                pqButton.textContent = 'Cancel'
+            }
+        }
     };
 
     var finish = function () {
         window.location.href = "/guidance.html";
-    }
-
-    // answers = ['1a','2b','3c'];
-    // checkPrereqs(['1a','4d']) // pass, as 1a exists in answers
-    // checkPrereqs(['1b,2c']) // fail, as neither 1b nor 2c exist in answers
-    // checkPrereqs(['1a+4d']) // fail, as 1a and 4d don't both exist in answers
-    // checkPrereqs(['1a+2b']) // pass, as 1a and 2b both exist in answers
-    // checkPrereqs([]) // pass, as no items to check
-    // checkPrereqs() // pass, as no items to check (edge case, as prerequisites should always exist)
-    var checkPrereqs = function (pre, answers) {
-        var showMustGoOn = false;
-        if (pre.length === 0)
-            return true;
-        for (var z = 0; z < pre.length; z++) {
-            var p = pre[z];
-            if (p.indexOf(',') > 0) {
-                var e = p.split(',');
-                var counter = 0;
-                for (var x = 0; x < e.length; x++) {
-                    if (answers.includes(p))
-                        counter++;
-                }
-                if (counter > 0)
-                    showMustGoOn = true;
-            } else if (p.indexOf('+') > 0) {
-                var e = p.split('+');
-                var counter = 0;
-                for (var x = 0; x < e.length; x++) {
-                    if (answers.includes(p))
-                        counter++;
-                }
-                if (counter === e.length)
-                    showMustGoOn = true;
-            } else {
-                if (answers.includes(p)) {
-                    showMustGoOn = true;
-                    break;
-                }
-            }
-        }
-
-        return showMustGoOn;
-    }
+    }    
 
     var init = function () {
         localStorage.setItem('page', '1');
@@ -200,7 +184,8 @@
         var nqButton = $('#next_question')[0];
         var pqButton = $('#previous_question')[0];
         if (pqButton !== null) {
-            pqButton.onclick = previousQuestion;
+            pqButton.onclick = cancel;
+            pqButton.textContent = 'Cancel'
         }
         if (nqButton !== null) {
             nqButton.onclick = parseAnswers;

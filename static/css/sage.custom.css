@@ -1,3 +1,49 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Open Sans Light'), local('OpenSans-Light'), url('https://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff') format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url('https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff') format('woff');
+}
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff') format('woff');
+}
+
+hr {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: rgba(0, 0, 0, 0.87);
+    border-style: solid none;
+    border-width: 1px 0;
+    margin: 18px 0;
+}
+
+a {
+    color: #008200 !important;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 17px;
+    width: 208px;
+    text-align: left;
+}
+
+.url_arrow {
+    padding-left: 3px;
+    height: 12px;
+}
+
 .header {
     height: 48px;
     background: #fff;
@@ -16,9 +62,9 @@
 
 .header .logo-container .text-sage {
     border-left-color: #335c6d;
-    color: rgba(0, 0, 0, .55);
-    border-left: 1px solid rgba(0, 0, 0, .3);
-    font-family: Adelle-sans, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: rgba(0, 0, 0, 0.55);
+    border-left: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: 'Open Sans';
     font-size: 20px;
     font-weight: 400;
     height: 28px;
@@ -85,42 +131,80 @@
 
 .label {
     color: rgba(0, 0, 0, 0.9);
-    font-family: OpenSans;
-    font-size: 14px;
+    font-family: 'Open Sans';
+    font-size: 17px;
     font-weight: 400;
     line-height: 17px;
     text-align: left;
-    padding-top: 5px;
+    padding-top: 4px;
+    padding-left: 8px;
+    padding-bottom: 10px;
 }
 
 input[type='radio'] {
-    -webkit-appearance:none;
-    width:16px;
-    height:16px;
-    border:2px solid black;
-    border-radius:50%;
-    outline:none;
-    box-shadow:0 0 0px 0px gray inset;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    outline: none;
+    box-shadow: 0 0 0 0 gray inset;
 }
+
 input[type='radio']:hover {
-    box-shadow:0 0 5px 0px black inset;
+    box-shadow: 0 0 5px 0 black inset;
 }
+
 input[type='radio']:before {
-    content:'';
-    display:block;
-    width:50%;
-    height:50%;    
-    border-radius:50%;    
+    content: '';
+    display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
 }
+
 input[type='radio']:checked:before {
-    background:black;
-    width:50%;
-    height:50%;
-    width:8px;
-    height:8px;
+    background: black;
+    width: 50%;
+    height: 50%;
+    width: 8px;
+    height: 8px;
     margin-left: 2px;
     margin-top: 2px;
-    border-radius:50%;
+    border-radius: 50%;
+}
+
+input[type='checkbox'] {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 0%;
+    outline: none;
+    box-shadow: 0 0 0 0 gray inset;
+}
+
+input[type='checkbox']:hover {
+    box-shadow: 0 0 5px 0 black inset;
+}
+
+input[type='checkbox']:before {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 50%;
+    border-radius: 0%;
+}
+
+input[type='checkbox']:checked:before {
+    background: black;
+    width: 50%;
+    height: 50%;
+    width: 8px;
+    height: 8px;
+    margin-left: 2px;
+    margin-top: 2px;
+    border-radius: 0%;
 }
 
 .guidences {
