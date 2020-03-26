@@ -1,7 +1,8 @@
 'use strict';
 
 (function($) {
-    var fileContents = {
+    // TODO assign to global variable?
+    window.sfcoronavirus = {
         questions: null,
         responses: null
     };
@@ -123,24 +124,24 @@
         var raw = $.csv.toObjects(response);
 
         // TODO transform row into nested object first
-        fileContents[filename] = transformers[filename](raw);
+        window.sfcoronavirus[filename] = transformers[filename](raw);
     };
     
     var loadFile = function(filename) {
         $.ajax({
-            url: './static/data/' + filename + '.csv',
+            url: '../static/data/' + filename + '.csv',
             statusCode: {
                 200: function(response) {
                     parseCsv(response, filename);
                 }
             },
             error: function(err) {
-                alert(err.responseText || err.message || 'Something has gone wrong');
+                console.log(err);
             }
         });
     };
 
-    // $(document).ready(function() {
-    //     init();
-    // });
+    $(document).ready(function() {
+        init();
+    });
 })(jQuery);

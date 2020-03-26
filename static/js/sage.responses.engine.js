@@ -6,7 +6,7 @@
     let fillPage = function () {
         let answers = JSON.parse(localStorage.getItem('answers'));
         let guidences = '';
-        let responses = input.responses;
+        let responses = window.sfcoronavirus.responses;
 
         for (let i = 0; i < responses.length; i++) {
             let r = responses[i];            
