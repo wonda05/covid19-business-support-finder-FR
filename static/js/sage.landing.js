@@ -1,12 +1,12 @@
 'use strict';
 
 (function ($) {
-    let button;
-    let buttonLoading;
-    let start = function () {
+    var button;
+    var buttonLoading;
+    var start = function () {
         buttonLoading.hidden = false
         button.hidden = true;
-        window.location.href = "/questionnaire";
+        window.location.href = "/static/pages/questionnaire.html";
     }
 
     $(document).ready(function () {
