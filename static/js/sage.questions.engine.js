@@ -1,11 +1,15 @@
 'use strict';
 
 (function ($) {
-    var select_template = '<div class="row"><div class="col-md-7 col-centered"><div class="input-group mb-3"><div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">LABEL</label></div><select class="custom-select" id="inputGroupSelect01"><option disabled="disabled" selected></option>OPTIONS</select></div></div></div>';
-    var option_template = '<option value="VALUE">TEXT</option>';
+    var radio_group_template = '<div class="radio_group">OPTIONS</div>';
+    var radio_template = '<div class="form-check"><input class="form-check-input" type="radio" name="radios" id="KEY" value="VALUE"><label class="form-check-label" for="KEY">TEXT</label></div>';
+
+    var checkbox_group_template = '<div class="check_group">OPTIONS</div>';
+    var checkbox_template = '<div class="form-check"><input class="form-check-input" type="checkbox" value="VALUE" id="KEY"><label class="form-check-label" for="KEY">TEXT</label></div>';
+
     var qs;
 
-    var tryLoadQuestions = function(callback) {
+    var tryLoadQuestions = function (callback) {
         var test = (window.sfcoronavirus) && (window.sfcoronavirus.questions);
 
         setTimeout(function () {
@@ -22,10 +26,12 @@
         event.preventDefault();
         var page = localStorage.getItem('page');
         var answers = JSON.parse(localStorage.getItem('answers'));
-        var form_data = document.forms["form"].getElementsByTagName("select");
+        var form_data = document.forms['form'].getElementsByTagName('input');
         if (checkAnswers(form_data)) {
             for (var i = 0; i < form_data.length; i++) {
-                answers.push(page.concat($(form_data[i]).find('option:selected').val()));
+                if ($(form_data[i]).prop('checked')) {
+                    answers.push(page.concat($(form_data[i]).val()));
+                }
             }
             localStorage.setItem('answers', JSON.stringify(answers));
             pageUp();
@@ -35,22 +41,22 @@
         }
     }
 
-    var showAlert = function() {
+    var showAlert = function () {
         let alertMessage = 'Please make a choice.'
         $("#alert_place").animate({
             height: '+=72px'
         }, 300);
-       $('<div class="alert alert-danger customAlert">' +
-                '<button type="button" class="close" data-dismiss="alert">' +
-                '&times;</button>'+alertMessage+'</div>').hide().appendTo('#alert_place').fadeIn(1000);
+        $('<div class="alert alert-danger customAlert">' +
+            '<button type="button" class="close" data-dismiss="alert">' +
+            '&times;</button>' + alertMessage + '</div>').hide().appendTo('#alert_place').fadeIn(1000);
 
-      $(".alert").delay(3000).fadeOut(
-      "normal",
-      function(){
-        $(this).remove();
-      });
+        $(".alert").delay(3000).fadeOut(
+            "normal",
+            function () {
+                $(this).remove();
+            });
 
-       $("#alert_place").delay(4000).animate({
+        $("#alert_place").delay(4000).animate({
             height: '-=72px'
         }, 300);
     }
@@ -58,30 +64,45 @@
     var checkAnswers = function (form_data) {
         var counter = 0;
         for (var i = 0; i < form_data.length; i++) {
-            if ($(form_data[i]).find('option:selected').val().length > 0) {
+            if ($(form_data[i]).prop('checked')) {
                 counter++;
             }
         }
 
-        return counter === form_data.length;
+        return counter > 0;
     }
 
     var fillPage = function () {
         var answers = JSON.parse(localStorage.getItem('answers'));
         var result = '';
         var finalize = true;
+        var outer_template = null;
+        var inner_template = null;
         for (var i = 0; i < qs.length; i++) {
             var q = qs[i];
             if (q.number === parseInt(localStorage.getItem('page'))) {
                 if (checkPrereqs(q.prerequisites, answers)) {
+                    switch (q.type) {
+                        case 'single':
+                            outer_template = radio_group_template;
+                            inner_template = radio_template;
+                            break;
+                        case 'multi':
+                            outer_template = checkbox_group_template;
+                            inner_template = checkbox_template;
+                            break;
+                    }
                     $('#question_tittle').text(q.question.title);
                     $('#question_gaidance').text(q.question.text);
                     var options = '';
                     for (var j = 0; j < q.answers.length; j++) {
                         var option = q.answers[j];
-                        options = options.concat(option_template.replace("TEXT", option.text).replace("VALUE", option.value));
+                        options = options.concat(inner_template.replace("KEY", 'key' + j)
+                            .replace("KEY", 'key' + j)
+                            .replace("TEXT", option.text)
+                            .replace("VALUE", option.value));
                     }
-                    result = result.concat(select_template.replace("LABEL", 'Choose..').replace("OPTIONS", options));
+                    result = result.concat(outer_template.replace("OPTIONS", options));
                     finalize = false;
                     break;
                 } else {
