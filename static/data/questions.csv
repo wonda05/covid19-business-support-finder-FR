@@ -1,0 +1,11 @@
+questionSequence,prerequisites,questionTitle,questionText,answerType,answerText1,answerValue1,answerText2,answerValue2,answerText3,answerValue3,answerValue4,answerValue4,answerValue5,answerValue5,answerValue6,answerValue6,answerValue7,answerValue7,answerValue8,answerValue8,answerValue9,answerValue9,answerValue10,answerValue10,answerValue11,answerValue11,answerValue12,answerValue12,answerValue13,answerValue13
+1,,Region,What is the region in which your company has registered headquarters for legal and taxation purposes. There are different initiatives which apply in the different regions.,single,England,a,Wales,b,Scotland,c,Northern Ireland,d,,,,,,,,,,,,,,,,,,
+2,,How many Employees do you have?,"How many people does you company employ, including directors and part-time staff. Staff are those you must pay PAYE and/or National Insurance for. Do not count sub-contractors or self-employed people you have working for you. What about Zero-hours staff?",single,0,a,01-Oct,b,Nov-49,c,50-249,d,250+,e,,,,,,,,,,,,,,,,
+3,,What is your turnover?,What was your turnover in the last finanical year? Those you had in your last set of accounts or your tax return.,single,Less than £45m,a,More than £45m,b,,,,,,,,,,,,,,,,,,,,,,
+4,,What taxes do you pay?,,multi,VAT,a,Corporation Tax,b,Income Tax,c,,,,,,,,,,,,,,,,,,,,
+5,,Which sector is your business in?,There are different schemes being offered specifically for different sectors.,multi,Hospitality,a,Retail,b,Leisure,c,Early-years nursery,d,Estate Agents,e,Letting Agency,f,Bingo Halls,g,Other (not listed),h,,,,,,,,,,
+6,,Do you rent business premises?,,single,Yes,a,No,b,,,,,,,,,,,,,,,,,,,,,,
+7,1a,English rate relief,Do you receive any of the following rate reliefs?,single,Small business rate relief,a,Rural rate relief,b,None of above,c,,,,,,,,,,,,,,,,,,,,
+8,1b,Welsh business rates,What is your business rate level?,single,"Less than £12,000",a,"More than £12,000",b,,,,,,,,,,,,,,,,,,,,,,
+9,1c,Scottish rate relief,Do you receive any of the following rate reliefs?,single,Small business bonus scheme,a,Rural rate relief,b,None of above,c,,,,,,,,,,,,,,,,,,,,
+10,1d,Northern Ireland business rates,What is your business rate level?,single,"Less than £15,000",a,"More than £15,000",b,,,,,,,,,,,,,,,,,,,,,,

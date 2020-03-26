@@ -1,0 +1,47 @@
+.header {
+    height: 48px;
+    background: #fff;
+    margin-left: 0;
+    margin-right: 0
+}
+
+.header .logo-container {
+    display: flex;
+    padding-top: 10px;
+    text-decoration: none;
+    margin-left: 12px;
+    order: 1;
+    width: 100%
+}
+
+.header .logo-container .text-sage {
+    border-left-color: #335c6d;
+    color: rgba(0,0,0,.55);
+    border-left: 1px solid rgba(0,0,0,.3);
+    font-family: Adelle-sans,Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    height: 28px;
+    line-height: 24px;
+    margin-left: 16px;
+    padding: 2px 16px;
+    white-space: nowrap
+}
+
+.header .logo-container .text-logo {
+    height: 25px;
+    position: relative;
+    top: 4px
+}
+
+.guidences {
+    margin-top: 3%;
+}
+
+.guidence {
+    margin-top: 1%;
+}
+
+.link {
+    font-size: 1em;
+}
