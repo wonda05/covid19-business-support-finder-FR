@@ -41,6 +41,20 @@
         }
     }
 
+    var previousQuestion = function() {
+        event.preventDefault();
+        var page = localStorage.getItem('page');
+        if (page > 1) {
+            var answers = JSON.parse(localStorage.getItem('answers'));
+            var previous_answers = answers.filter(function(answer) {
+                return answer.charAt(0) != page-1;
+            });
+            localStorage.setItem('answers', JSON.stringify(previous_answers));
+            pageDown();
+            fillPage();
+        }
+    };
+
     var showAlert = function () {
         let alertMessage = 'Please make a choice.'
         $("#alert_place").animate({
@@ -120,7 +134,13 @@
         var page = localStorage.getItem('page');
         page = parseInt(page);
         localStorage.setItem('page', ++page);
-    }
+    };
+
+    var pageDown = function () {
+        var page = localStorage.getItem('page');
+        page = parseInt(page);
+            localStorage.setItem('page', --page);
+    };
 
     var finish = function () {
         window.location.href = "/guidance.html";
@@ -176,6 +196,10 @@
 
     $(document).ready(function () {
         var nqButton = $('#next_question')[0];
+        var pqButton = $('#previous_question')[0];
+        if (pqButton !== null) {
+            pqButton.onclick = previousQuestion;
+        }
         if (nqButton !== null) {
             nqButton.onclick = parseAnswers;
             init();
