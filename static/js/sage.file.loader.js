@@ -126,10 +126,10 @@
         // TODO transform row into nested object first
         window.sfcoronavirus[filename] = transformers[filename](raw);
     };
-    
+
     var loadFile = function(filename) {
         $.ajax({
-            url: '../static/data/' + filename + '.csv',
+            url: '../data/' + filename + '.csv',
             statusCode: {
                 200: function(response) {
                     parseCsv(response, filename);

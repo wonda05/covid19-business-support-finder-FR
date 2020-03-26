@@ -34,6 +34,11 @@
     top: 4px
 }
 
+.buttons {
+    background-color: #090 !important;
+    border-color: #090 !important;
+}
+
 .guidences {
     margin-top: 3%;
 }
@@ -44,4 +49,8 @@
 
 .link {
     font-size: 1em;
+}
+
+.landing {
+    margin-top: 3%;
 }
