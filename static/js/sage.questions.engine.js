@@ -47,7 +47,7 @@
         if (page > 1) {
             var answers = JSON.parse(localStorage.getItem('answers'));
             var previous_answers = answers.filter(function(answer) {
-                return answer.charAt(0) !== page-1;
+                return answer.charAt(0) != page-1;
             });
             localStorage.setItem('answers', JSON.stringify(previous_answers));
             pageDown();
