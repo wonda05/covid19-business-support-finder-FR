@@ -129,7 +129,7 @@
 
     var loadFile = function(filename) {
         $.ajax({
-            url: '../data/' + filename + '.csv',
+            url: 'static/data/' + filename + '.csv',
             statusCode: {
                 200: function(response) {
                     parseCsv(response, filename);

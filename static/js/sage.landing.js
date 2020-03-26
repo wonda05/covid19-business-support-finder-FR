@@ -6,7 +6,7 @@
     var start = function () {
         buttonLoading.hidden = false
         button.hidden = true;
-        window.location.href = "/static/pages/questionnaire.html";
+        window.location.href = "/questionnaire.html";
     }
 
     $(document).ready(function () {
