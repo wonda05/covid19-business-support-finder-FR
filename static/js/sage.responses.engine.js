@@ -18,6 +18,13 @@
         }, 200)
     };
 
+    var restart = function () {
+        event.preventDefault();
+        localStorage.setItem('page', '1');
+        localStorage.setItem('answers', JSON.stringify([]));
+        window.location.href = "/";
+    };
+
     var fillPage = function () {
         var answers = JSON.parse(localStorage.getItem('answers'));
         var guidences = '';
@@ -84,6 +91,11 @@
     }
 
     $(document).ready(function () {
+        var restartButton = $('#restart_button')[0];
+        if (restartButton !== null) {
+            restartButton.onclick = restart;
+            init();
+        }
         init();
     });
 })(jQuery);
