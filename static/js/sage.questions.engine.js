@@ -99,7 +99,7 @@
             eventAction: 'CancelFlow',
             eventLabel: 'N/A',
             hitCallback: function(){
-                window.location.href = "/";
+                window.location.href = "./";
             }
         });
     };
@@ -212,7 +212,7 @@
             eventAction: 'SubmitAnswers',
             eventLabel: answers.toString(),
             hitCallback: function(){
-                window.location.href = "/guidance.html";
+                window.location.href = "./guidance.html";
             }
         });
     };

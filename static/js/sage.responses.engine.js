@@ -29,7 +29,7 @@
             eventAction: 'RestartFlow',
             eventLabel: 'N/A',
             hitCallback: function(){
-                window.location.href = "/";
+                window.location.href = "./";
             }
         });
     };
