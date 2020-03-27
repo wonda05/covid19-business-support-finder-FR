@@ -22,19 +22,32 @@
         }, 200)
     };
 
-    var parseAnswers = function () {        
+    var parseAnswers = function () {
         var page = localStorage.getItem('page');
-        var answers = JSON.parse(localStorage.getItem('answers'));
+        var allAnswers = JSON.parse(localStorage.getItem('answers'));
         var form_data = document.forms['form'].getElementsByTagName('input');
         if (checkAnswers(form_data)) {
+            var newAnswers = [];
+
             for (var i = 0; i < form_data.length; i++) {
                 if ($(form_data[i]).prop('checked')) {
-                    answers.push(page.concat($(form_data[i]).val()));
+                    var value = page.concat($(form_data[i]).val());
+                    allAnswers.push(value);
+                    newAnswers.push(value);
                 }
             }
-            localStorage.setItem('answers', JSON.stringify(answers));
-            pageUp();
-            fillPage();
+            localStorage.setItem('answers', JSON.stringify(allAnswers));
+
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'CoronavirusFunding',
+                eventAction: 'SelectAnswer',
+                eventLabel: newAnswers.toString(),
+                hitCallback: function(){
+                    pageUp();
+                    fillPage();
+                }
+            });
         } else {
             showAlert();
         }
@@ -48,7 +61,7 @@
         }, 100);
     }
 
-    var previousQuestion = function () {        
+    var previousQuestion = function () {
         var page = localStorage.getItem('page');
         if (page > 1) {
             var answers = JSON.parse(localStorage.getItem('answers'));
@@ -56,8 +69,21 @@
                 return answer.charAt(0) != page - 1;
             });
             localStorage.setItem('answers', JSON.stringify(previous_answers));
-            pageDown();
-            fillPage();
+
+            var answers_to_remove = answers.filter(function (answer) {
+                return answer.charAt(0) == page - 1;
+            });
+
+            ga('send', {
+                hitType: 'event',
+                eventCategory: 'CoronavirusFunding',
+                eventAction: 'UndoAnswer',
+                eventLabel: answers_to_remove.toString(),
+                hitCallback: function(){
+                    pageDown();
+                    fillPage();
+                }
+            });
         }
         stopPropagation();
     };
@@ -66,8 +92,17 @@
         event.preventDefault();
         localStorage.setItem('page', '1');
         localStorage.setItem('answers', JSON.stringify([]));
-        window.location.href = "/";
-    }
+
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'CoronavirusFunding',
+            eventAction: 'CancelFlow',
+            eventLabel: 'N/A',
+            hitCallback: function(){
+                window.location.href = "/";
+            }
+        });
+    };
 
     var showAlert = function () {
         if ($(".alert").length === 0) {
@@ -143,7 +178,7 @@
 
         document.getElementById('to_fill').innerHTML = result;
         if (finalize)
-            finish();
+            finish(answers);
     }
 
     var pageUp = function () {
@@ -170,9 +205,17 @@
         }
     };
 
-    var finish = function () {
-        window.location.href = "/guidance.html";
-    }    
+    var finish = function (answers) {
+        ga('send', {
+            hitType: 'event',
+            eventCategory: 'CoronavirusFunding',
+            eventAction: 'SubmitAnswers',
+            eventLabel: answers.toString(),
+            hitCallback: function(){
+                window.location.href = "/guidance.html";
+            }
+        });
+    };
 
     var init = function () {
         localStorage.setItem('page', '1');
