@@ -11,6 +11,19 @@
         loadFile('responses');
     };
 
+    var stripQuotes = function(object) {
+        var keys = Object.keys(object);
+        for (var i = 0; i < keys.length; i++) {
+            var key = keys[i];
+            var value = object[key];
+            if (typeof value === 'string' && value.charAt(0) === '"' && value.charAt(value.length-1) === '"') {
+                object[key] = value.substring(1, value.length-1);
+            }
+        }
+
+        return object;
+    };
+
     var transformers = {
         // transforms questions.csv to the model to be consumed by the UI
         questions: function(content) {
@@ -21,6 +34,8 @@
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
                 var original = content[i];
+
+                stripQuotes(original);
 
                 // map to format in model.json
                 var transformedQuestion = {
@@ -73,6 +88,8 @@
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
                 var original = content[i];
+
+                stripQuotes(original);
 
                 // map to format in model.json
                 var transformedResponse = {
