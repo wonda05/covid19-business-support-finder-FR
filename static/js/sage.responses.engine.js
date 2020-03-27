@@ -18,20 +18,31 @@
         }, 200)
     };
 
+    var trySendAnalytics = function(category, action, label, callback) {
+        if (window.ga) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: category,
+                eventAction: action,
+                eventLabel: label,
+                hitCallback: function(){
+                    callback();
+                }
+            });
+        } else {
+            callback()
+        }
+    };
+
     var restart = function () {
         event.preventDefault();
         localStorage.setItem('page', '1');
         localStorage.setItem('answers', JSON.stringify([]));
 
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'CoronavirusFunding',
-            eventAction: 'RestartFlow',
-            eventLabel: 'N/A',
-            hitCallback: function(){
-                window.location.href = "./";
-            }
-        });
+        var callback = function(){
+            window.location.href = "./";
+        };
+        trySendAnalytics('CoronavirusFunding', 'RestartFlow', 'N/A', callback);
     };
 
     var fillPage = function () {
@@ -54,12 +65,8 @@
 
     // needs to be global as it's called directly by onclick handler
     window.trackOutboundLink = function(topic) {
-        ga('send', {
-            hitType: 'event',
-            eventCategory: 'CoronavirusFunding',
-            eventAction: 'OutboundLink',
-            eventLabel: topic
-        });
+        var callback = function() {};
+        trySendAnalytics('CoronavirusFunding', 'OutboundLink', topic, callback);
     };
 
     var init = function () {
