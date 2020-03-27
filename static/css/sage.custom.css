@@ -39,6 +39,28 @@ a {
     text-align: left;
 }
 
+p {
+    color: rgba(0, 0, 0, 0.55) !important;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 17px;
+    width: 100%;
+    text-align: left;
+}
+
+.first {
+    margin-bottom: 1%;
+    margin-top: 5%;
+}
+
+.footer {
+    position: fixed;
+    left: 5%;
+    bottom: 5%;
+    width: 50%;    
+  }
+
 .url_arrow {
     padding-left: 3px;
     height: 12px;
