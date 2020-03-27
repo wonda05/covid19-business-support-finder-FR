@@ -37,6 +37,7 @@ a {
     line-height: 17px;
     width: 208px;
     text-align: left;
+    text-decoration: underline !important;
 }
 
 p {
@@ -58,7 +59,7 @@ p {
     position: fixed;
     left: 5%;
     bottom: 5%;
-    width: 50%;    
+    width: 50%;
   }
 
 .url_arrow {
@@ -247,4 +248,8 @@ input[type='checkbox']:checked:before {
 
 .customAlert {
     width: 60%;
+}
+
+h4 {
+    margin-top: 16px !important;
 }
