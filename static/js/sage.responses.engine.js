@@ -2,7 +2,7 @@
 
 (function ($) {
     var guidence_template = '<div class="row"><div class="col-md-7 text-left guidence" ><hr><h3>TITLE</h3></div></div><div class="row"><div class="col-md-7 text-left"><h6>TEXT</h6></div></div>'
-    var link_template = '<div class="row"><div class="col-md-7 text-left link"><a href="URL" target="_blank">TEXT<img class="url_arrow" src="static/images/url_arrow.svg"></a></div></div>';
+    var link_template = '<div class="row"><div class="col-md-7 text-left link"><a href="URL" onclick="trackOutboundLink(TITLE); return true;" target="_blank">TEXT<img class="url_arrow" src="static/images/url_arrow.svg"></a></div></div>';
     var responses;
 
     var tryLoadResponses = function(callback) {
@@ -18,11 +18,31 @@
         }, 200)
     };
 
+    var trySendAnalytics = function(category, action, label, callback) {
+        if (window.ga) {
+            ga('send', {
+                hitType: 'event',
+                eventCategory: category,
+                eventAction: action,
+                eventLabel: label,
+                hitCallback: function(){
+                    callback();
+                }
+            });
+        } else {
+            callback()
+        }
+    };
+
     var restart = function () {
         event.preventDefault();
         localStorage.setItem('page', '1');
         localStorage.setItem('answers', JSON.stringify([]));
-        window.location.href = "/";
+
+        var callback = function(){
+            window.location.href = "./";
+        };
+        trySendAnalytics('CoronavirusFunding', 'RestartFlow', 'N/A', callback);
     };
 
     var fillPage = function () {
@@ -35,13 +55,19 @@
                 guidences = guidences.concat(guidence_template.replace('TITLE',r.guidance.title).replace('TEXT', r.guidance.text));
                 for(var j=0;j<r.links.length;j++) {
                     var link = r.links[j];
-                    guidences = guidences.concat(link_template.replace('TEXT', link.text).replace('URL', link.url));
+                    guidences = guidences.concat(link_template.replace('TEXT', link.text).replace('URL', link.url).replace('TITLE', "'" + r.guidance.title + "'"));
                 }
             }
         }
 
         document.getElementById('guidences').innerHTML = guidences;
     }
+
+    // needs to be global as it's called directly by onclick handler
+    window.trackOutboundLink = function(topic) {
+        var callback = function() {};
+        trySendAnalytics('CoronavirusFunding', 'OutboundLink', topic, callback);
+    };
 
     var init = function () {
         localStorage.setItem('page', '1');
