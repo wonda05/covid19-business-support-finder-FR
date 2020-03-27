@@ -149,12 +149,15 @@
             var q = qs[i];
             if (q.number === parseInt(localStorage.getItem('page'))) {
                 if (checkPrereqs(q.prerequisites, answers)) {
-                    switch (q.type) {
-                        case 'single':
+                    var answer_gaidance = $('#answer_gaidance')[0];
+                    switch (q.type) {                        
+                        case 'single':                            
+                            answer_gaidance.textContent = "Select one"
                             outer_template = radio_group_template;
                             inner_template = radio_template;
                             break;
-                        case 'multi':
+                        case 'multi':                            
+                            answer_gaidance.textContent = "Select all that apply"
                             outer_template = checkbox_group_template;
                             inner_template = checkbox_template;
                             break;
