@@ -1,7 +1,6 @@
 'use strict';
 
 (function($) {
-    // TODO assign to global variable?
     window.sfcoronavirus = {
         questions: null,
         responses: null
@@ -17,7 +16,7 @@
         questions: function(content) {
             $('#parsed-file').append('<h2>Questions</h2>');
 
-            var array = []
+            var array = [];
 
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
@@ -33,7 +32,7 @@
                     type: original.answerType,
                     prerequisites: original.prerequisites ? original.prerequisites.split(',') : [],
                     answers: [] // populated below
-                }
+                };
 
                 // the number of questions can vary - detecting it here to keep CSV file flexible
                 var answerCount = (function() {
@@ -51,7 +50,7 @@
                         var answer = {
                             text: original['answerText' + j],
                             value: original['answerValue' + j]
-                        }
+                        };
 
                         transformedQuestion.answers.push(answer);
                     }
@@ -69,7 +68,7 @@
         responses: function(content) {
             $('#parsed-file').append('<h2>Responses</h2>');
 
-            var array = []
+            var array = [];
 
             // loop over each row in the file (headers are already removed by the jQuery CSV plugin)
             for (var i = 0; i < content.length; i++) {
@@ -84,9 +83,9 @@
                     },
                     prerequisites: original.prerequisites ? original.prerequisites.split(',') : [],
                     links: [] // populated below
-                }
+                };
 
-                // the number of questions can vary - detecting it here to keep CSV file flexible
+                // the number of links can vary - detecting it here to keep CSV file flexible
                 var linkCount = (function() {
                     var keys = Object.keys(original);
                     var matches = keys.filter(function(key) {
@@ -102,28 +101,22 @@
                         var link = {
                             text: original['contentLabel' + j],
                             url: original['contentURL' + j]
-                        }
+                        };
 
                         transformedResponse.links.push(link);
                     }
                 }
 
                 array.push(transformedResponse);
-
-                // TODO debugging stuff, remove before use in production
-                $('#parsed-file').append('<p>' + JSON.stringify(transformedResponse) + '</p>');
             }
 
             return array;
         }
-    }
+    };
 
     // takes a CSV file and maps it to an array of objects, also mapping headers to cell values
     var parseCsv = function(response, filename) {
-        // TODO actually parse file into a format that makes sense to the UI flow.
         var raw = $.csv.toObjects(response);
-
-        // TODO transform row into nested object first
         window.sfcoronavirus[filename] = transformers[filename](raw);
     };
 
