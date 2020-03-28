@@ -86,7 +86,7 @@
             });
 
             var callback = function() {
-                pageUp();
+                pageDown();
                 fillPage();
             };
             trySendAnalytics('CoronavirusFunding', 'UndoAnswer', answers_to_remove.toString(), callback);
@@ -150,13 +150,13 @@
             if (q.number === parseInt(localStorage.getItem('page'))) {
                 if (checkPrereqs(q.prerequisites, answers)) {
                     var answer_gaidance = $('#answer_gaidance')[0];
-                    switch (q.type) {                        
-                        case 'single':                            
+                    switch (q.type) {
+                        case 'single':
                             answer_gaidance.textContent = "Select one"
                             outer_template = radio_group_template;
                             inner_template = radio_template;
                             break;
-                        case 'multi':                            
+                        case 'multi':
                             answer_gaidance.textContent = "Select all that apply"
                             outer_template = checkbox_group_template;
                             inner_template = checkbox_template;
@@ -193,7 +193,7 @@
         var pqButton = $('#previous_question')[0];
         if (pqButton !== null) {
             pqButton.onclick = previousQuestion;
-            pqButton.textContent = 'Previous Question'
+            pqButton.textContent = 'Previous'
         }
     };
 
