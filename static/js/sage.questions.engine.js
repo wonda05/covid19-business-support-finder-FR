@@ -1,10 +1,10 @@
 'use strict';
 
 (function ($) {
-    var radio_group_template = '<div class="radio_group">OPTIONS</div>';
+    var radio_group_template = '<div class="col-lg-8 col-md-10">OPTIONS</div>';
     var radio_template = '<div class="form-check"><input class="form-check-input" type="radio" name="radios" id="KEY" value="VALUE" tabindex="INDEX"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
-    var checkbox_group_template = '<div class="check_group">OPTIONS</div>';
+    var checkbox_group_template = '<div class="col-lg-8 col-md-10">OPTIONS</div>';
     var checkbox_template = '<div class="form-check"><input class="form-check-input" type="checkbox" value="VALUE" id="KEY" tabindex="INDEX"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
     var qs;
@@ -23,18 +23,28 @@
     };
 
     var trySendAnalytics = function(category, action, label, callback) {
+        // Creates a timeout to invoke callback after 200ms.
+        setTimeout(invokeCallback, 200);
+
+        var callbackInvoked = false;
+
+        function invokeCallback() {
+            if (!callbackInvoked) {
+                callbackInvoked = true;
+                callback();
+            }
+        }
+
         if (window.ga) {
             ga('send', {
                 hitType: 'event',
                 eventCategory: category,
                 eventAction: action,
                 eventLabel: label,
-                hitCallback: function(){
-                    callback();
-                }
+                hitCallback: invokeCallback
             });
         } else {
-            callback()
+            invokeCallback()
         }
     };
 
@@ -86,7 +96,7 @@
             });
 
             var callback = function() {
-                pageUp();
+                pageDown();
                 fillPage();
             };
             trySendAnalytics('CoronavirusFunding', 'UndoAnswer', answers_to_remove.toString(), callback);
@@ -150,13 +160,13 @@
             if (q.number === parseInt(localStorage.getItem('page'))) {
                 if (checkPrereqs(q.prerequisites, answers)) {
                     var answer_gaidance = $('#answer_gaidance')[0];
-                    switch (q.type) {                        
-                        case 'single':                            
+                    switch (q.type) {
+                        case 'single':
                             answer_gaidance.textContent = "Select one"
                             outer_template = radio_group_template;
                             inner_template = radio_template;
                             break;
-                        case 'multi':                            
+                        case 'multi':
                             answer_gaidance.textContent = "Select all that apply"
                             outer_template = checkbox_group_template;
                             inner_template = checkbox_template;
@@ -194,7 +204,7 @@
         var pqButton = $('#previous_question')[0];
         if (pqButton !== null) {
             pqButton.onclick = previousQuestion;
-            pqButton.textContent = 'Previous Question'
+            pqButton.textContent = 'Previous'
         }
     };
 
