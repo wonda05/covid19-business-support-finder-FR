@@ -16,6 +16,12 @@
     font-weight: 600;
     src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('https://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff') format('woff');
 }
+@font-face {
+    font-family: 'Icon Font';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/carbon-icons-webfont.woff'), url('../fonts/carbon-icons-webfont.ttf');
+}
 
 hr {
     -moz-border-bottom-colors: none;
@@ -32,10 +38,10 @@ hr {
 a {
     color: #008200 !important;
     font-family: 'Open Sans';
-    font-size: 17px;
+    font-size: 14px;
     font-weight: bold;
     line-height: 17px;
-    width: 208px;
+    width: 50%;
     text-align: left;
     text-decoration: underline !important;
 }
@@ -50,12 +56,16 @@ p {
     text-align: left;
 }
 
+.subtitle {
+    color: rgba(0, 0, 0, 0.75) !important;
+}
+
 .main_links {
     font-size: 14px;
 }
 
 .footer_spacer {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
 }
 
 .first {
@@ -64,23 +74,13 @@ p {
 }
 
 .footer {
-    left: 5%;
-    bottom: 5%;
-    width: 70%;
-    margin-left: 5%;
-    margin-top: 5%;
-    position: flex;
-    width: 100%;
-    z-index: 501;
-    clear: both;
-    flex-direction: column;
-    justify-content: space-between
+    /*margin-left: 4%;*/
 }
 
 .answer_gaidance {
     color: rgba(0, 0, 0, 0.55);
     font-family: 'Open Sans';
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 17px;
     text-align: left;
@@ -89,6 +89,11 @@ p {
 .url_arrow {
     padding-left: 3px;
     height: 12px;
+}
+
+.body {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .header {
@@ -112,7 +117,7 @@ p {
     color: rgba(0, 0, 0, 0.55);
     border-left: 1px solid rgba(0, 0, 0, 0.3);
     font-family: 'Open Sans';
-    font-size: 20px;
+    font-size: calc(1vh + 0.8vmin);
     font-weight: 400;
     height: 28px;
     line-height: 24px;
@@ -172,6 +177,10 @@ p {
     border-color: #01a982;
 }
 
+.btn-group {
+    margin-top: 40px !important;
+}
+
 .radio_group {}
 
 .check_group {}
@@ -179,7 +188,7 @@ p {
 .label {
     color: rgba(0, 0, 0, 0.9);
     font-family: 'Open Sans';
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 17px;
     text-align: left;
@@ -273,6 +282,21 @@ input[type='checkbox']:checked:before {
     width: 60%;
 }
 
-h4 {
-    margin-top: 16px !important;
+[data-icon]:before {
+    font-family: "Icon Font";
+    content: attr(data-icon);
+    font-size: inherit;
+    line-height: inherit;
+    margin-left: 4px;
+    margin-right: 4px;
+    speak: none;
+    text-decoration: none !important;
+}
+
+.info {
+    color: #0077C8;
+}
+
+.warning {
+    color: #E96400;
 }
