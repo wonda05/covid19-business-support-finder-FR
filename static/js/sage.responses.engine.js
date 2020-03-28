@@ -1,8 +1,8 @@
 'use strict';
 
 (function ($) {
-    var guidence_template = '<div class="row"><div class="col-md-7 text-left guidence" ><hr><h3>TITLE</h3></div></div><div class="row"><div class="col-md-7 text-left"><h6>TEXT</h6></div></div>'
-    var link_template = '<div class="row"><div class="col-md-7 text-left link"><a href="URL" onclick="trackOutboundLink(TITLE); return true;" target="_blank">TEXT<img class="url_arrow" src="static/images/url_arrow.svg"></a></div></div>';
+    var guidence_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left guidence" ><hr><h3>TITLE</h3></div></div><div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left"><h6>TEXT</h6></div></div>'
+    var link_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left link"><a href="URL" onclick="trackOutboundLink(TITLE); return true;" target="_blank">TEXT<img class="url_arrow" src="static/images/url_arrow.svg"></a></div></div>';
     var responses;
 
     var tryLoadResponses = function(callback) {

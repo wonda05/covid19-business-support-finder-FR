@@ -181,10 +181,6 @@ p {
     margin-top: 40px !important;
 }
 
-.radio_group {}
-
-.check_group {}
-
 .label {
     color: rgba(0, 0, 0, 0.9);
     font-family: 'Open Sans';
@@ -262,21 +258,21 @@ input[type='checkbox']:checked:before {
     margin-bottom: 3px;
 }
 
-.guidences {
-    margin-top: 3%;
-}
+/*.guidences {*/
+    /*margin-top: 3%;*/
+/*}*/
 
-.guidence {
-    margin-top: 1%;
-}
+/*.guidence {*/
+    /*margin-top: 1%;*/
+/*}*/
 
 .link {
     font-size: 1em;
 }
 
-.landing {
-    margin-top: 3%;
-}
+/*.landing {*/
+    /*margin-top: 3%;*/
+/*}*/
 
 .customAlert {
     width: 60%;

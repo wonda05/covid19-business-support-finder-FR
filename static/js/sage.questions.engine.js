@@ -1,10 +1,10 @@
 'use strict';
 
 (function ($) {
-    var radio_group_template = '<div class="radio_group">OPTIONS</div>';
+    var radio_group_template = '<div class="col-lg-8 col-md-10">OPTIONS</div>';
     var radio_template = '<div class="form-check"><input class="form-check-input" type="radio" name="radios" id="KEY" value="VALUE" tabindex="INDEX"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
-    var checkbox_group_template = '<div class="check_group">OPTIONS</div>';
+    var checkbox_group_template = '<div class="col-lg-8 col-md-10">OPTIONS</div>';
     var checkbox_template = '<div class="form-check"><input class="form-check-input" type="checkbox" value="VALUE" id="KEY" tabindex="INDEX"><label class="form-check-label label" for="KEY">TEXT</label></div>';
 
     var qs;
