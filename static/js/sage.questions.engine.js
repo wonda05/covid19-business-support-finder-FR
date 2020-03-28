@@ -23,18 +23,28 @@
     };
 
     var trySendAnalytics = function(category, action, label, callback) {
+        // Creates a timeout to invoke callback after 200ms.
+        setTimeout(invokeCallback, 200);
+
+        var callbackInvoked = false;
+
+        function invokeCallback() {
+            if (!callbackInvoked) {
+                callbackInvoked = true;
+                callback();
+            }
+        }
+
         if (window.ga) {
             ga('send', {
                 hitType: 'event',
                 eventCategory: category,
                 eventAction: action,
                 eventLabel: label,
-                hitCallback: function(){
-                    callback();
-                }
+                hitCallback: invokeCallback
             });
         } else {
-            callback()
+            invokeCallback()
         }
     };
 
