@@ -28,12 +28,12 @@
 
         var callbackInvoked = false;
 
-        function invokeCallback() {
+        var invokeCallback = function() {
             if (!callbackInvoked) {
                 callbackInvoked = true;
                 callback();
             }
-        }
+        };
 
         if (window.ga) {
             ga('send', {
