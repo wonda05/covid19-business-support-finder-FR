@@ -1,7 +1,7 @@
 'use strict';
 
 (function ($) {
-    var guidence_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left guidence" ><hr><h3>TITLE</h3></div></div><div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left"><h6>TEXT</h6></div></div>'
+    var guidence_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left guidence" ><hr><h3>TITLE</h3></div></div><div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left"><p>TEXT</p></div></div>'
     var link_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left link"><a href="URL" onclick="trackOutboundLink(TITLE); return true;" target="_blank">TEXT<img class="url_arrow" src="static/images/url_arrow.svg"></a></div></div>';
     var questions_heading = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left"><h3>Your responses were</h3></div></div>';
     var question_template = '<div class="row justify-content-center"><div class="col-lg-8 col-md-10 text-left"><h6>QUESTION</h6></div></div>';
