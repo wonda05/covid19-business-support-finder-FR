@@ -293,8 +293,19 @@ input[type='checkbox']:checked:before {
     text-decoration: none !important;
 }
 
+.sidebar__card{
+    border: 1px solid #0077C8;
+}
+
+.sidebar__cardiconcol{
+    background-color: #0077C8;
+    display: flex;
+    align-items: center;
+}
+
 .info {
-    color: #0077C8;
+    color: #ffffff;
+    margin-left:2px;
 }
 
 .warning {
