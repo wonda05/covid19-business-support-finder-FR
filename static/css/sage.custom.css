@@ -77,12 +77,15 @@ strong {
     margin-top: 5%;
 }
 
-.footer {
-    /*margin-left: 4%;*/
+.footer__div {
+    margin-bottom: 1%;
+    margin-top: 5%;
+    position: absolute !important;
+    bottom: 0;
 }
 
 .body {
-    background-color: rgba(0, 0, 0, 0.035);
+    background-color: #ffffff;
 }
 
 .answer_gaidance {
@@ -107,9 +110,9 @@ strong {
 .header {
     height: 48px;
     background: #fff;
-    margin-left: 0;
-    margin-right: 0;
-    border: 1px solid #CCD6DB;
+    margin-left: -15px;
+    margin-right: -15px;
+    border-bottom: 1px solid #CCD6DB;
 }
 
 .header .logo-container {
@@ -123,10 +126,9 @@ strong {
 
 .header .logo-container .text-sage {
     border-left-color: #335c6d;
-    color: rgba(0, 0, 0, 0.55);
+    color: rgba(0, 0, 0, 0.85);
     border-left: 1px solid rgba(0, 0, 0, 0.3);
     font-family: 'Open Sans';
-    font-size: calc(1vh + 0.8vmin);
     font-weight: 400;
     height: 28px;
     line-height: 24px;
@@ -279,9 +281,10 @@ input[type='checkbox']:checked:before {
     font-size: 1em;
 }
 
-/*.landing {*/
-    /*margin-top: 3%;*/
-/*}*/
+.landing {
+    background-color: rgba(0, 0, 0, 0.035);
+    border:1px solid #CCD6DB;
+}
 
 .customAlert {
     width: 60%;
@@ -298,6 +301,10 @@ input[type='checkbox']:checked:before {
     text-decoration: none !important;
 }
 
+.card{
+    margin: 30 0;
+}
+
 .sidebar__card{
     border: 1px solid #0077C8;
 }
@@ -310,7 +317,7 @@ input[type='checkbox']:checked:before {
 
 .info {
     color: #ffffff;
-    margin-left:2px;
+    /* margin-left:2px; */
 }
 
 .warning {
@@ -366,4 +373,12 @@ input[type='checkbox']:checked:before {
     top: 48px;
     left: 0;
     z-index: 998;
+}
+
+.mainbody__container{
+    margin-top:30px;
+    margin-left:30px;
+    margin-right:10px;
+    border:1px solid #CCD6DB;
+    background-color: #ffffff;
 }
