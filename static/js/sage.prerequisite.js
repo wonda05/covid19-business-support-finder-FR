@@ -5,37 +5,37 @@
 // checkPrereqs(['1a+2b']) // pass, as 1a and 2b both exist in answers
 // checkPrereqs([]) // pass, as no items to check
 // checkPrereqs() // pass, as no items to check (edge case, as prerequisites should always exist)
-function checkPrereqs(pre, answers) {
-    var showMustGoOn = false;
-    if (pre.length === 0)
+function checkPrereqs(prerequisites, answers) {
+
+    // if no pre-requisites defined, return true
+    if (prerequisites.length === 0) {
         return true;
-    for (var z = 0; z < pre.length; z++) {
-        var p = pre[z];
-        if (p.indexOf(',') > 0) {
-            var e = p.split(',');
-            var counter = 0;
-            for (var x = 0; x < e.length; x++) {
-                if (answers.includes(p))
-                    counter++;
-            }
-            if (counter > 0)
-                showMustGoOn = true;
-        } else if (p.indexOf('+') > 0) {
-            var e = p.split('+');
-            var counter = 0;
-            for (var x = 0; x < e.length; x++) {
-                if (answers.includes(p))
-                    counter++;
-            }
-            if (counter === e.length)
-                showMustGoOn = true;
-        } else {
-            if (answers.includes(p)) {
-                showMustGoOn = true;
-                break;
-            }
-        }
     }
 
-    return showMustGoOn;
+    // check each pre-requisite, returning true as soon as a match is found
+    for (var z = 0; z < prerequisites.length; z++) {
+        var counter = 0;
+        var prereq = prerequisites[z];
+
+        // split any pre-requisites with a + so we can check compound pre-requisites too
+        var group = prereq.split('+');
+
+        // for each group (some may be single entry), return true if all answers in the group were provided
+        for (var x = 0; x < group.length; ++x) {
+            var foundAnswer = answers.find(function(answer) {
+                return answer === group[x];
+            });
+
+            if (foundAnswer) {
+                counter++;
+            }
+
+            // return true as soon as the number of matches equals the length of the group
+            // (works for simple and compound pre-requisites)
+            if (counter === group.length)
+                return true;
+            }
+        }
+
+    return false;
 }
