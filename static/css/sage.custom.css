@@ -306,6 +306,16 @@ input[type='checkbox']:checked:before {
     margin:0 0 0 30px;
 }
 
+@media (max-width: 768px) {
+    .sidebar__container {
+        margin-right: 30px;
+    }
+
+    .mainbody__container {
+        margin-right: 30px !important;
+    }
+}
+
 .card{
     margin: 30 0;
     padding: 0;
