@@ -110,8 +110,8 @@ strong {
 .header {
     height: 48px;
     background: #fff;
-    margin-left: -15px;
-    margin-right: -15px;
+    margin-left: 0;
+    margin-right: 0;
     border-bottom: 1px solid #CCD6DB;
 }
 
@@ -283,7 +283,6 @@ input[type='checkbox']:checked:before {
 
 .landing {
     background-color: rgba(0, 0, 0, 0.035);
-    border:1px solid #CCD6DB;
 }
 
 .customAlert {
