@@ -81,6 +81,10 @@ strong {
     /*margin-left: 4%;*/
 }
 
+.body {
+    background-color: rgba(0, 0, 0, 0.035);
+}
+
 .answer_gaidance {
     color: rgba(0, 0, 0, 0.55);
     font-family: 'Open Sans';
@@ -104,7 +108,8 @@ strong {
     height: 48px;
     background: #fff;
     margin-left: 0;
-    margin-right: 0
+    margin-right: 0;
+    border: 1px solid #CCD6DB;
 }
 
 .header .logo-container {
