@@ -3,10 +3,10 @@
 // checkPrereqs(['1b,2c']) // fail, as neither 1b nor 2c exist in answers
 // checkPrereqs(['1a+4d']) // fail, as 1a and 4d don't both exist in answers
 // checkPrereqs(['1a+2b']) // pass, as 1a and 2b both exist in answers
+// checkPrereqs(['1a+2b','1a+2c']) // pass, as 1a and 2b both exist in answers
 // checkPrereqs([]) // pass, as no items to check
 // checkPrereqs() // pass, as no items to check (edge case, as prerequisites should always exist)
 function checkPrereqs(prerequisites, answers) {
-
     // if no pre-requisites defined, return true
     if (prerequisites.length === 0) {
         return true;
@@ -32,10 +32,11 @@ function checkPrereqs(prerequisites, answers) {
 
             // return true as soon as the number of matches equals the length of the group
             // (works for simple and compound pre-requisites)
-            if (counter === group.length)
+            if (counter === group.length) {
                 return true;
             }
         }
+    }
 
     return false;
 }
