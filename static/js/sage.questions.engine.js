@@ -193,6 +193,9 @@
         }
 
         document.getElementById('to_fill').innerHTML = result;
+
+        $('#loading').hide();
+
         if (finalize)
             finish(answers);
     }

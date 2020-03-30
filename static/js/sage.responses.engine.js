@@ -92,6 +92,7 @@
         }
 
         document.getElementById('guidance-items').innerHTML = userAnswers;
+        $('#loading').hide();
     };
 
     var fillPage = function () {
@@ -115,6 +116,7 @@
         if (guidanceFound) {
             $('#guidance-summary').show();
             document.getElementById('guidance-items').innerHTML = guidanceItems;
+            $('#loading').hide();
         } else {
             $('#no-guidance-found').show();
             showUserAnswers(answers);
