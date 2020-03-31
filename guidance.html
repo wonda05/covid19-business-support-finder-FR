@@ -39,9 +39,13 @@
 
     <body class="body landing">
         <div class="header">
-            <div class="logo-container">
-                <img class="text-logo" src="static/images/sage-logo.svg">
-                <span class="text-sage">Coronavirus: UK government funding support tool</span>
+            <div class="logo-container container-md">
+                <div class="row justify-content-center">
+                    <div class="col-lg-11 justify-content-center">
+                        <img class="text-logo" src="static/images/sage-logo.svg">
+                        <span class="text-sage">Coronavirus: UK government funding support tool</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -67,13 +71,28 @@
                         </div>
                         <div class="justify-content-center">
                             <div class="btn-group">
-                                <button id="restart_button" class="btn btn-primary btn-block mtm buttons">Restart Assessment</button>
+                                <button id="restart_button" class="btn btn-primary btn-block mtm buttons restart_button">Restart Assessment</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-md-11 text-left sidebar__container">
+                    <div class="card">
+                        <div class="row no-gutters sidebar__card sidebar__card__warning">
+                            <div class="col-1 sidebar__cardiconcol sidebar__cardiconcol__warning">
+                                <span class="warning" data-icon=""></span>
+                            </div>
+                            <div class="col-11">
+                                <div class="card-body">
+                                    <h6>Important advice</h6>
+                                    <p class="card-text">Sage encourage you to come back at a later date and rerun the assessment as the Government continue to announce new initiatives which we will be adding as we receive information.</p>
+                                    <a class="restart_button card-text text-uppercase" href="" target="_blank">Restart Assessment</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="card">
                         <div class="row no-gutters sidebar__card">
                             <div class="col-1 sidebar__cardiconcol">

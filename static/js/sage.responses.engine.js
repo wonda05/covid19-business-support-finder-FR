@@ -140,7 +140,7 @@
             restartButton.onclick = restart;
         }
 
-        $('#restart_link').on('click', function(event) {
+        $('.restart_link').on('click', function(event) {
             event.preventDefault();
             restart();
         });
