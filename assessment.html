@@ -38,7 +38,7 @@
     <script src="static/js/sage.questions.engine.js"></script>
 </head>
 
-<body class="body">
+<body class="body landing">
      <div class="header">
         <div class="logo-container">
             <img class="text-logo" src="static/images/sage-logo.svg">
@@ -52,80 +52,90 @@
     </div>
 
     <!-- page content -->
-    <div id="content">
-        <div id="questions" class="container">
-            <form id="form">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left first">
-                        <h3 id="question_tittle">Question Header</h3>
+    <div id="landing" class="container-md">
+        <div class="row">
+            <div class="col-lg-7 col-md-11 text-left mainbody__container">
+                <form id="form" class="no-margin">
+                    <div class="justify-content-center">
+                        <div class="text-left first">
+                            <h3 id="question_tittle">Question Header</h3>
+                        </div>
                     </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left">
-                        <h6 id="question_gaidance">Question guidance to help
-                            the user understand how to answer</h6>
+                    <div class="justify-content-center">
+                        <div class="text-left">
+                            <p id="question_gaidance">Question guidance to help
+                                the user understand how to answer</p>
+                        </div>
                     </div>
-                </div>
-                <div id="alert_place"></div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left" style="margin-top: 2%;">
-                        <h5 id="answer_gaidance" class="answer_gaidance">Answer guidance (e.g. Pick 1 or
-                            all that apply)
-                        </h5>
+                    <div id="alert_place"></div>
+                    <div class="justify-content-center">
+                        <div class="text-left">
+                            <h5 id="answer_gaidance" class="answer_gaidance">Answer guidance (e.g. Pick 1 or
+                                all that apply)
+                            </h5>
+                        </div>
                     </div>
-                </div>
-                <div id="to_fill" class="row justify-content-center">
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10">
-                        <div class="btn-group">
+                    <div id="to_fill" class="justify-content-center">
+                    </div>
+                    <div class="justify-content-center">
+                            <div class="btn-group">
                             <button id="previous_question" class="btn btn-secondary mtm buttons back_button">Cancel</button>
-                            <div style="width: 14px;"></div>
+                                <div style="width: 16px;"></div>
                             <button id="next_question" class="btn btn-secondary mtm buttons">Next</button>
                         </div>
                     </div>
+                </form>
+                <div id="answers" class="container">
+                    <div class="col-xs-12 col-sm-9 col-lg-8 col-md-10 col-lg-6 col-centered">
+                        <div class="hc-tile-inner button-tile">
+                            <div class="col-xs-12
+                                no-gutter">
+                                <div id="to_change">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </form>
-        </div>
+            </div>
 
-        <div id="answers" class="container">
-            <div class="col-xs-12 col-sm-9 col-lg-8 col-md-10 col-lg-6 col-centered">
-                <div class="hc-tile-inner button-tile">
-                    <div class="col-xs-12
-                            no-gutter">
-                        <div id="to_change">
 
+        <div class="col-lg-4 col-md-11 text-left sidebar__container">
+            <div class="card">
+                <div class="row no-gutters sidebar__card">
+                    <div class="col-1 sidebar__cardiconcol">
+                        <span class="info" data-icon=""></span>
+                    </div>
+                    <div class="col-11">
+                        <div class="card-body">
+                            <p class="card-text">Keep up to date with the latest information for your business.</p>
+                            <a class="card-text" href="https://www.sage.com/en-gb/coronavirus/" target="_blank">https://www.sage.com/en-gb/coronavirus/<span data-icon=""></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="row no-gutters sidebar__card">
+                    <div class="col-1 sidebar__cardiconcol">
+                        <span class="info" data-icon=""></span>
+                    </div>
+                    <div class="col-11">
+                        <div class="card-body">
+                            <h6 class="card-text">Got more questions?</h6>
+                            <p class="card-text">Register for our daily live webinar all about UK government financial support.</p>
+                            <a class="card-text" href="https://register.gotowebinar.com/rt/2830875610434660365" target="_blank">Register for daily webinar<span data-icon=""></span></a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div id="callouts" class="container">
-            <div class="row justify-content-center justify-content-center">
-                <div class="col-lg-8 col-md-10 text-left">
-                    <hr />
-                    <p><span class="info" data-icon=""></span>Keep up to date with the latest information for your business.</p>
-                    <a href="https://www.sage.com/en-gb/coronavirus/" target="_blank">https://www.sage.com/en-gb/coronavirus/<span data-icon=""></span></a>
-                </div>
-            </div>
-            <div class="row justify-content-center justify-content-center">
-                <div class="col-lg-8 col-md-10 text-left">
-                    <hr />
-                    <h6 class="info"><span data-icon=""></span>Got more questions?</h6>
-                    <p>Register for our daily live webinar all about UK government financial support.</p>
-                    <a href="https://register.gotowebinar.com/rt/2830875610434660365" target="_blank">Register for daily webinar<span data-icon=""></span></a>
-                    <hr />
-                </div>
+        <div class="row">
+            <div class="col footer footer__div">
+                <p class="text-center"><a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> for use of Sage(UK)’s Coronavirus: UK Government funding support tool</p>
             </div>
         </div>
-
-        <footer class="footer first container">
-            <div class="row justify-content-center justify-content-center">
-                <div class="col-lg-8 col-md-10">
-                    <p><a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> for use of Sage(UK)’s Coronavirus: UK Government funding support tool</p>
-                </div>
-            </div>
-        </footer>
     </div>
 </body>

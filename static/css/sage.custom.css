@@ -405,3 +405,7 @@ input[type='checkbox']:checked:before {
     border:1px solid #CCD6DB;
     background-color: #ffffff;
 }
+
+.no-margin {
+    margin: 0 !important;
+}
