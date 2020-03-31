@@ -86,17 +86,20 @@
         var page = localStorage.getItem('page');
         if (page > 1) {
             var answers = JSON.parse(localStorage.getItem('answers'));
+            // account for cases where we've skipped optional questions depending on flow
+            var lastPageWithAnswers = answers[answers.length-1].charAt(0);
+
             var previous_answers = answers.filter(function (answer) {
-                return answer.charAt(0) != page - 1;
+                return answer.charAt(0) != lastPageWithAnswers;
             });
             localStorage.setItem('answers', JSON.stringify(previous_answers));
 
             var answers_to_remove = answers.filter(function (answer) {
-                return answer.charAt(0) == page - 1;
+                return answer.charAt(0) == lastPageWithAnswers;
             });
 
             var callback = function() {
-                pageDown();
+                pageDown(lastPageWithAnswers);
                 fillPage();
             };
             trySendAnalytics('CoronavirusFunding', 'UndoAnswer', answers_to_remove.toString(), callback);
@@ -211,10 +214,12 @@
         }
     };
 
-    var pageDown = function () {
+    var pageDown = function (targetPage) {
         var page = localStorage.getItem('page');
         page = parseInt(page);
-        localStorage.setItem('page', --page);
+
+        var newPage = targetPage || --page;
+        localStorage.setItem('page', newPage);
         if (page === 1) {
             var pqButton = $('#previous_question')[0];
             if (pqButton !== null) {
