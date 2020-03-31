@@ -84,7 +84,7 @@ strong {
 }
 
 .body {
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.035);
 }
 
 .answer_gaidance {
@@ -284,10 +284,6 @@ input[type='checkbox']:checked:before {
 .link {
     font-size: 1em;
     margin-bottom: 16px;
-}
-
-.landing {
-    background-color: rgba(0, 0, 0, 0.035);
 }
 
 .customAlert {
