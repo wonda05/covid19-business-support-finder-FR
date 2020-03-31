@@ -176,7 +176,7 @@
                             break;
                     }
                     $('#question_tittle').text(q.question.title);
-                    $('#question_gaidance').text(q.question.text);
+                    $('#question_guidance').text(q.question.text);
                     var options = '';
                     for (var j = 0; j < q.answers.length; j++) {
                         var option = q.answers[j];

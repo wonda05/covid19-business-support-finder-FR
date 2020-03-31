@@ -96,6 +96,10 @@ strong {
     text-align: left;
 }
 
+#question_guidance {
+    color: rgba(0, 0, 0, 0.9) !important;
+}
+
 .url_arrow {
     padding-left: 3px;
     height: 12px;
@@ -189,7 +193,7 @@ strong {
 }
 
 .btn-group {
-    margin-top: 40px !important;
+    margin-top: 16px !important;
 }
 
 .label {
@@ -279,6 +283,7 @@ input[type='checkbox']:checked:before {
 
 .link {
     font-size: 1em;
+    margin-bottom: 16px;
 }
 
 .landing {
