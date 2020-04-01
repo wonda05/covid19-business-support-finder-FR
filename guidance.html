@@ -1,4 +1,5 @@
-<html><head>
+<html>
+    <head>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,7 +16,7 @@
             })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
             ga('create', 'UA-52433542-3', 'auto');
-            ga('set', { page: '/coronavirus-funding/guidance.html', title: 'Coronavirus: UK Government Funding Tool - guidance' });
+            ga('set', { title: 'Coronavirus: UK Government Funding Tool - guidance' });
             ga('set', 'transport', 'beacon');
             ga('send', 'pageview');
         </script>
@@ -35,11 +36,16 @@
         <script src="static/js/sage.prerequisite.js"></script>
         <script src="static/js/sage.responses.engine.js"></script>
     </head>
+
     <body class="body">
         <div class="header">
-            <div class="logo-container">
-                <img class="text-logo" src="static/images/sage-logo.svg">
-                <span class="text-sage">Coronavirus: UK government funding support tool</span>
+            <div class="logo-container container-md">
+                <div class="row justify-content-center">
+                    <div class="col-lg-11 justify-content-center">
+                        <img class="text-logo" src="static/images/sage-logo.svg">
+                        <span class="text-sage">Coronavirus: UK government funding support tool</span>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -49,55 +55,80 @@
         </div>
 
         <!-- page content -->
-         <div id="content">
-            <div id="answers" class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left first">
-                        <h3 id="question_tittle">Your assessment results</h3>
+        <div id="content" class="container-md">
+            <div class="row">
+                <div class="col-lg-7 col-md-11 text-left mainbody__container">
+                    <div class="justify-content-center">
+                        <div class="text-left first">
+                            <h3 id="question_tittle">Your assessment results</h3>
+                        </div>
+                        <div class="text-left">
+                            <p id="guidance-summary" style="display:none;">Based on your answers, here are the UK government schemes you could be eligible for. Follow the links below to find out more information and clear guidance on how to access them.</p>
+                            <p id="no-guidance-found" style="display:none;">Based on your responses to the assessment, unfortunately there do not appear to be any initiatives which support your situation. You can <a class="restart_link inline-link" href="">restart the assessment</a> and try again.</p>
+                            <p><strong>Please continue to visit this advice tool to pick up any new assistance that becomes available, and bookmark the guidance to see the latest information.</strong></p>
+                        </div>
+                        <div id="guidance-items">
+                        </div>
+                        <div class="justify-content-center">
+                            <div class="btn-group">
+                                <button id="restart_button" class="btn btn-primary btn-block mtm buttons">Restart Assessment</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left">
-                        <p id="guidance-summary" style="display:none;">Based on your answers, here are the UK government schemes you could be eligible for. Follow the links below to find out more information and clear guidance on how to access them.</p>
-                        <p id="no-guidance-found" style="display:none;">Based on your responses to the assessment, unfortunately there do not appear to be any initiatives which support your situation. You can <a id="restart_link" class="inline-link" href="">restart the assessment</a> and try again.</p>
-                        <p><strong>Please continue to visit this advice tool to pick up any new assistance that becomes available, and bookmark the guidance to see the latest information.</strong></p>
+
+                <div class="col-lg-4 col-md-11 text-left sidebar__container">
+                    <div class="card">
+                        <div class="row no-gutters sidebar__card sidebar__card__warning">
+                            <div class="col-1 sidebar__cardiconcol sidebar__cardiconcol__warning">
+                                <span class="warning" data-icon=""></span>
+                            </div>
+                            <div class="col-11">
+                                <div class="card-body">
+                                    <h6>Important advice</h6>
+                                    <p class="card-text">Sage encourage you to come back at a later date and rerun the assessment as the Government continue to announce new initiatives which we will be adding as we receive information.</p>
+                                    <a class="restart_link card-text text-uppercase" href="" target="_blank">Restart Assessment</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div id="guidance-items">
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10" style="">
-                        <div class="btn-group">
-                            <button id="restart_button" class="btn btn-primary btn-block mtm buttons">Restart Assessment</button>
+
+                    <div class="card">
+                        <div class="row no-gutters sidebar__card">
+                            <div class="col-1 sidebar__cardiconcol">
+                                <span class="info" data-icon=""></span>
+                            </div>
+                            <div class="col-11">
+                                <div class="card-body">
+                                    <p class="card-text">Keep up to date with the latest information for your business.</p>
+                                    <a class="card-text" href="https://www.sage.com/en-gb/coronavirus/" target="_blank">https://www.sage.com/en-gb/coronavirus/<span data-icon=""></span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="row no-gutters sidebar__card">
+                            <div class="col-1 sidebar__cardiconcol">
+                                <span class="info" data-icon=""></span>
+                            </div>
+                            <div class="col-11">
+                                <div class="card-body">
+                                    <h6 class="card-text">Got more questions?</h6>
+                                    <p class="card-text">Register for our daily live webinar all about UK government financial support.</p>
+                                    <a class="card-text" href="https://register.gotowebinar.com/rt/2830875610434660365" target="_blank">Register for daily webinar<span data-icon=""></span></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="callouts" class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left">
-                        <hr />
-                        <p><span class="info" data-icon=""></span>Keep up to date with the latest information for your business.</p>
-                        <a href="https://www.sage.com/en-gb/coronavirus/" target="_blank">https://www.sage.com/en-gb/coronavirus/<span data-icon=""></span></a>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10 text-left">
-                        <hr />
-                        <h6 class="info"><span data-icon=""></span>Got more questions?</h6>
-                        <p>Register for our daily live webinar all about UK government financial support.</p>
-                        <a href="https://register.gotowebinar.com/rt/2830875610434660365" target="_blank">Register for daily webinar<span data-icon=""></span></a>
-                        <hr />
-                    </div>
+
+            <div class="row">
+                <div class="col footer footer__div">
+                    <p class="text-center"><a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> for use of Sage(UK)’s Coronavirus: UK Government funding support tool</p>
                 </div>
             </div>
-            <footer class="footer first container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10">
-                        <p><a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> for use of Sage(UK)’s Coronavirus: UK Government funding support tool</p>
-                    </div>
-                </div>
-            </footer>
         </div>
     </body>
 </html>
