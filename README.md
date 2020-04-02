@@ -25,7 +25,7 @@ serve
 #### Removing UK-specific content
 Remove all of the content pages within `\guidance` except for `template.html`. `template.html` contains a basic layout that presents the main content in a large card, and other relevant information in smaller cards to the right. The design of this template has already been approved by UX and should need no changes other than copy text.
 
-You will eventually replace the files in `\static\data` with data that drives the assessment flow for your own content. However, we recommend treating the initial files as examples until you are familiar with how the tool works. The process for creating new versions of these files will be shared by Gavin Langland (gavin.langland@sage.com). 
+You will eventually replace the files in `\static\data` with data that drives the assessment flow for your own content. However, we recommend treating the initial files as examples until you are familiar with how the tool works. The process for creating new versions of these files will be shared by Gavin Langlands (gavin.langlands@sage.com). 
 
 #### Analytics
 
