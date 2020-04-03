@@ -31,10 +31,10 @@ You will eventually replace the files in `\static\data` with data that drives th
 
 Update all references to Google Analytics to use your own GA account ID. This is relevant for all HTML pages throughout the tool.
 
-Example: the ID `UA-52433542-3` should be replaced with the ID of an account that works for the domain where you will host your copy of the tool.
+Example: the ID `UA-77475402-2` should be replaced with the ID of an account that works for the domain where you will host your copy of the tool.
 
 ```javascript
-ga('create', 'UA-52433542-3', 'auto');
+ga('create', 'UA-77475402-2', 'auto');
 ```
 
 We use two types of analytics in the tool: simple pageviews and custom events.
@@ -60,7 +60,7 @@ To report on the answers a user has submitted, we send a custom event:
 ```javascript
 ga('send', {
     hitType: 'event',
-    eventCategory: category, // e.g. 'CoronavirusFunding'
+    eventCategory: category, // e.g. 'CoronavirusFundingGBR'
     eventAction: action, // e.g. 'SelectAnswer
     eventLabel: label, // e.g. '4a'
     hitCallback: invokeCallback
