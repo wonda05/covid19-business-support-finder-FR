@@ -29,13 +29,9 @@ You will eventually replace the files in `\static\data` with data that drives th
 
 #### Analytics
 
-Update all references to Google Analytics to use your own GA account ID. This is relevant for all HTML pages throughout the tool.
+Analytics for *all* versions of the tool should be sent to the *same* Google Analytics property (UA-77475402-2), as data for all countries is being gathered into a single PowerBI report. To request access to this report, please contact Michael Wanless.
 
-Example: the ID `UA-77475402-2` should be replaced with the ID of an account that works for the domain where you will host your copy of the tool.
-
-```javascript
-ga('create', 'UA-77475402-2', 'auto');
-```
+**Important**: for analytics events, the event category **must** be suffixed with the relevant 3 character country code (e.g. 'CoronavirusFundingGBR'). 
 
 We use two types of analytics in the tool: simple pageviews and custom events.
 
@@ -66,8 +62,6 @@ ga('send', {
     hitCallback: invokeCallback
 });
 ```
-
-If you will be sending analytics for multiple regions to the same Analytics account, consider adding a country code suffix to the event category to be able to report on them separately (i.e. 'CoronavirusFundingCAN').
 
 Specifying a callback allows us to wait for the event to be sent successfully before continuing with our application logic. Important: if not properly implemented, ad blockers can block the flow - see the [Google Analytics documentation] for more info.
 
