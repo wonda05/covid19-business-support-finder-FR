@@ -1,4 +1,4 @@
-# Coronavirus: UK government funding support tool
+# COVID: Business Support Finder
 
 In order to help our customers find financial support for their businesses during the Covid-19 pandemic, we have built an assessment tool that allows them to answer a series of questions to discover available options in their local jurisdiction.
 
@@ -31,7 +31,7 @@ origin     https://myfork.git (push)
 ```
 - Push the code base and all tags / branches, to your new repository
 ```bash
-git push https://myfork.git *:*
+git push --force https://myfork.git *:*
 ```
  
 ##### Limitations
