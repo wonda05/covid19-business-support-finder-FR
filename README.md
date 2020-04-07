@@ -9,8 +9,36 @@ As both legislation and the forms of financial support available are changing ra
 ### Getting started
 
 #### Forking the repo
-As this tool was initially created to support the UK, you will need to maintain a separate copy for your own region/country. Where possible, we recommend [forking] this repo as this will allow you to pull any future changes into your version.
+As this tool was initially created to support the UK, you will need to maintain a separate copy for your own region/country. As forking is not permitted within the Sage GitHub, you will have to follow the steps below.
 
+##### Process
+ 
+- Create new repository (in this example, we’ll imagine the git URL for this repository is `https://myfork.git`)
+
+- Clone existing repository
+```bash
+git clone git@github.com:Sage/sf-coronavirus-guidance-tool.git
+```
+- Modify origin on your local copy of the existing repository:
+```bash
+cd sf-coronavirus-guidance-tool/
+git set-url origin https://myfork.git
+```
+- You can check that this has worked by running git remote -v, you should see
+```
+origin     https://myfork.git (fetch)
+origin     https://myfork.git (push)
+```
+- Push the code base and all tags / branches, to your new repository
+```bash
+git push https://myfork.git *:*
+```
+ 
+##### Limitations
+ 
+Forks are provided by the Git host, not git itself (i.e GitHub) and tracking of forks occurs entirely within their database. This means that manual ‘forks’ will not show up on the GitHub UI, nor will you be able to do pull requests into the original copies. There are ways to get around this kind of thing, but they’re slightly more complex so I won’t go into detail unless it’s something that’s required.
+
+##### Access
 Access to this repo should be requested from Michael Wanless (michael.wanless@sage.com).
 
 #### Running the tool locally
