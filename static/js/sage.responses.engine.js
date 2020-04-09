@@ -58,7 +58,7 @@
         var callback = function(){
             window.location.href = "./";
         };
-        trySendAnalytics('CoronavirusFundingGBR', 'RestartFlow', 'N/A', callback);
+        trySendAnalytics('CoronavirusFundingCA', 'RestartFlow', 'N/A', callback);
     };
 
     var showUserAnswers = function(answers) {
@@ -126,7 +126,7 @@
     // needs to be global as it's called directly by onclick handler
     window.trackOutboundLink = function(topic) {
         var callback = function() {};
-        trySendAnalytics('CoronavirusFundingGBR', 'OutboundLink', topic, callback);
+        trySendAnalytics('CoronavirusFundingCA', 'OutboundLink', topic, callback);
     };
 
     var init = function () {
