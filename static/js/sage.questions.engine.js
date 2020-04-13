@@ -68,7 +68,7 @@
                 pageUp();
                 fillPage();
             };
-            trySendAnalytics('CoronavirusFundingCA', 'SelectAnswer', newAnswers.toString(), callback);
+            trySendAnalytics('CoronavirusFundingFR_CA', 'SelectAnswer', newAnswers.toString(), callback);
         } else {
             showAlert();
         }
@@ -102,7 +102,7 @@
                 pageDown(lastPageWithAnswers);
                 fillPage();
             };
-            trySendAnalytics('CoronavirusFundingCA', 'UndoAnswer', answers_to_remove.toString(), callback);
+            trySendAnalytics('CoronavirusFundingFR_CA', 'UndoAnswer', answers_to_remove.toString(), callback);
         }
         stopPropagation();
     };
@@ -116,7 +116,7 @@
             window.location.href = "./";
         };
 
-        trySendAnalytics('CoronavirusFundingCA', 'CancelFlow', 'N/A', callback);
+        trySendAnalytics('CoronavirusFundingFR_CA', 'CancelFlow', 'N/A', callback);
     };
 
     var showAlert = function () {
@@ -234,7 +234,7 @@
             window.location.href = "./guidance.html";
         };
 
-        trySendAnalytics('CoronavirusFundingCA', 'SubmitAnswers', answers.toString(), callback);
+        trySendAnalytics('CoronavirusFundingFR_CA', 'SubmitAnswers', answers.toString(), callback);
     };
 
     var init = function () {
