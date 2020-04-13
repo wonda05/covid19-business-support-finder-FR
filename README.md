@@ -22,7 +22,7 @@ git clone git@github.com:Sage/sf-coronavirus-guidance-tool.git
 - Modify origin on your local copy of the existing repository:
 ```bash
 cd sf-coronavirus-guidance-tool/
-git set-url origin https://myfork.git
+git remote set-url origin https://myfork.git
 ```
 - You can check that this has worked by running git remote -v, you should see
 ```
