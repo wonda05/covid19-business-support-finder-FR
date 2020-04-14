@@ -121,7 +121,7 @@
 
     var showAlert = function () {
         if ($(".alert").length === 0) {
-            let alertMessage = 'Please make a choice.'
+            let alertMessage = 'Veuillez faire un choix.'
             $("#alert_place").animate({
                 height: '+=72px'
             }, 300);
@@ -165,7 +165,7 @@
                     var answer_gaidance = $('#answer_gaidance')[0];
                     switch (q.type) {
                         case 'single':
-                            answer_gaidance.textContent = "Select one"
+                            answer_gaidance.textContent = "Sélectionnez-en un"
                             outer_template = radio_group_template;
                             inner_template = radio_template;
                             break;
