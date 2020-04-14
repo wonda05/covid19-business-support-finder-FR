@@ -1,15 +1,10 @@
 ﻿<html>
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" charset="utf-8">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>
-            Sage - Canadian COVID-19: Business Support Finder
-        </title>
-
-	<!-- Google Analytics -->
-        <script>
+        <title>Sage - COVID-19 au pays : Localisateur de soutien aux entreprises</title><!-- Google Analytics --><script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -19,10 +14,7 @@
             ga('set', { title: 'Canadian COVID-19: Business Support Finder - guidance' });
             ga('set', 'transport', 'beacon');
             ga('send', 'pageview');
-        </script>
-        <!-- End Google Analytics -->
-
-        <script
+        </script><!-- End Google Analytics --><script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.71/jquery.csv-0.71.min.js"></script>
         <link rel="stylesheet" type="text/css" href="static/css/sage.custom.css">
@@ -41,37 +33,28 @@
         <div class="header">
             <div class="logo-container container-md">
                 <div class="row justify-content-center">
-                    <div class="col-lg-11 justify-content-center">
-                        <img class="text-logo" src="static/images/sage-logo.svg">
-                        <span class="text-sage">Canadian COVID-19: Business Support Finder</span>
-                    </div>
+                    <div class="col-lg-11 justify-content-center"><img class="text-logo" src="static/images/sage-logo.svg"> <span class="text-sage">COVID-19 au pays : Localisateur de soutien aux entreprises</span></div>
                 </div>
             </div>
-        </div>
-
-        <!-- loading spinner -->
-        <div id="loading">
+        </div><!-- loading spinner --><div id="loading">
             <div class="carbon-spinner"></div>
-        </div>
-
-        <!-- page content -->
-        <div id="content" class="container-md">
+        </div><!-- page content --><div id="content" class="container-md">
             <div class="row">
                 <div class="col-lg-7 col-md-11 text-left mainbody__container">
                     <div class="justify-content-center">
                         <div class="text-left first">
-                            <h3 id="question_tittle">Your assessment results</h3>
+                            <h3 id="question_tittle">Vos r&eacute;sultats d&rsquo;&eacute;valuation</h3>
                         </div>
                         <div class="text-left">
-                            <p id="guidance-summary" style="display:none;">Based on your answers, here are the Canadian government programs you could be eligible for. Follow the links below to find out more information and clear guidance on how to access them.</p>
-                            <p id="no-guidance-found" style="display:none;">Based on your responses to the assessment, unfortunately there do not appear to be any initiatives which support your situation. You can <a class="restart_link inline-link" href="">restart the assessment</a> and try again.</p>
-                            <p><strong>Please continue to visit this advice tool to pick up any new assistance that becomes available, and bookmark the guidance to see the latest information.</strong></p>
+                            <p id="guidance-summary" style="display:none;">Selon vos r&eacute;ponses, voici les programmes du gouvernement canadien pour lesquels vous pourriez &ecirc;tre admissible. Cliquez sur les liens ci-apr&egrave;s pour obtenir plus de renseignements et des directives pr&eacute;cises sur la fa&ccedil;on d&rsquo;y acc&eacute;der.</p>
+                            <p id="no-guidance-found" style="display:none;">Selon vos r&eacute;ponses &agrave; l&rsquo;&eacute;valuation, malheureusement il ne semble pas y avoir d&rsquo;initiatives qui avalisent votre situation. Vous pouvez <a class="restart_link inline-link" href="">recommencer l&rsquo;&eacute;valuation</a> et l&rsquo;essayer de nouveau.</p>
+                            <p><strong>Veuillez continuer d&rsquo;utiliser cet outil de conseil pour obtenir toute nouvelle assistance offerte, et mettez les conseils m&eacute;moire pour voir les plus r&eacute;cents renseignements.</strong></p>
                         </div>
                         <div id="guidance-items">
                         </div>
                         <div class="justify-content-center">
                             <div class="btn-group">
-                                <button id="restart_button" class="btn btn-primary btn-block mtm buttons">Restart Assessment</button>
+                                <button id="restart_button" class="btn btn-primary btn-block mtm buttons">Recommencez l&rsquo;&eacute;valuation</button>
                             </div>
                         </div>
                     </div>
@@ -80,29 +63,21 @@
                 <div class="col-lg-4 col-md-11 text-left sidebar__container">
                     <div class="card">
                         <div class="row no-gutters sidebar__card sidebar__card__warning">
-                            <div class="col-1 sidebar__cardiconcol sidebar__cardiconcol__warning">
-                                <span class="warning" data-icon=""></span>
-                            </div>
+                            <div class="col-1 sidebar__cardiconcol sidebar__cardiconcol__warning"><span class="warning" data-icon=""></span></div>
                             <div class="col-11">
                                 <div class="card-body">
-                                    <h6>Important advice</h6>
-                                    <p class="card-text">Sage encourage you to come back at a later date and re-run the assessment as the government continue to announce new initiatives which we will be adding as we receive information.</p>
-                                    <a class="restart_link card-text text-uppercase" href="" target="_blank">Restart Assessment</a>
-                                </div>
+                                    <h6>Conseils importants</h6>
+                                    <p class="card-text">Sage vous incite &agrave; revenir &agrave; une date ult&eacute;rieure et recommencer l&rsquo;&eacute;valuation, alors que le gouvernement continue d&apos;annoncer de nouvelles initiatives qui seront ajout&eacute;es au fur et &agrave; mesure que nous recevons les informations. </p><a class="restart_link card-text text-uppercase" href="" target="_blank">Recommencez l&rsquo;&eacute;valuation</a></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="card">
                         <div class="row no-gutters sidebar__card">
-                            <div class="col-1 sidebar__cardiconcol">
-                                <span class="info" data-icon=""></span>
-                            </div>
+                            <div class="col-1 sidebar__cardiconcol"><span class="info" data-icon=""></span></div>
                             <div class="col-11">
                                 <div class="card-body">
-                                    <p class="card-text">Keep up to date with the latest information for your business.</p>
-                                    <a class="card-text" href="https://www.sage.com/en-ca/coronavirus/" target="_blank">https://www.sage.com/en-ca/coronavirus/<span data-icon=""></span></a>
-                                </div>
+                                    <p class="card-text">Tenez-vous au courant des plus r&eacute;cents renseignements sur votre entreprise.</p><a class="card-text" href="https://www.sage.com/en-ca/coronavirus/" target="_blank">https://www.sage.com/en-ca/coronavirus/<span data-icon=""></span></a></div>
                             </div>
                         </div>
                     </div>
@@ -112,7 +87,7 @@
 
             <div class="row">
                 <div class="col footer footer__div">
-                    <p class="text-center"><a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> for use of Sage’s Canadian COVID-19: Business Support Finder</p>
+                    <p class="text-center"><a href="./terms-and-conditions.html" target="_blank">Modalit&eacute;s</a> pour l&rsquo;utilisation du COVID-19 de Sage au Canada : Localisateur de soutien aux entreprises</p>
                 </div>
             </div>
         </div>
