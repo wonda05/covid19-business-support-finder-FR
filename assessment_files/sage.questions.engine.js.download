@@ -170,7 +170,7 @@
                             inner_template = radio_template;
                             break;
                         case 'multi':
-                            answer_gaidance.textContent = "Select all that apply"
+                            answer_gaidance.textContent = "Sélectionner tout ce qui s’applique"
                             outer_template = checkbox_group_template;
                             inner_template = checkbox_template;
                             break;
@@ -210,7 +210,7 @@
         var pqButton = $('#previous_question')[0];
         if (pqButton !== null) {
             pqButton.onclick = previousQuestion;
-            pqButton.textContent = 'Previous'
+            pqButton.textContent = 'Précédent'
         }
     };
 
@@ -224,7 +224,7 @@
             var pqButton = $('#previous_question')[0];
             if (pqButton !== null) {
                 pqButton.onclick = cancel;
-                pqButton.textContent = 'Cancel'
+                pqButton.textContent = 'Annuler'
             }
         }
     };
@@ -248,7 +248,7 @@
         var pqButton = $('#previous_question')[0];
         if (pqButton !== null) {
             pqButton.onclick = cancel;
-            pqButton.textContent = 'Cancel'
+            pqButton.textContent = 'Annuler'
         }
         if (nqButton !== null) {
             nqButton.onclick = parseAnswers;
