@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\guidance",
-    "\\static\\css"
+    "\\static",
+    "\\static\\data"
   ],
-  "SelectedNode": "\\guidance\\canada-emergency-business-account.html",
+  "SelectedNode": "\\static\\data\\responses.csv",
   "PreviewInSolutionExplorer": false
 }
