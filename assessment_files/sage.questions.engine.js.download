@@ -165,7 +165,7 @@
                     var answer_gaidance = $('#answer_gaidance')[0];
                     switch (q.type) {
                         case 'single':
-                            answer_gaidance.textContent = "Sélectionnez-en un"
+                            answer_gaidance.textContent = "Sélectionnez une option"
                             outer_template = radio_group_template;
                             inner_template = radio_template;
                             break;
