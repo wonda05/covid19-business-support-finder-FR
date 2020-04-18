@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\guidance"
+    "\\guidance",
+    "\\static",
+    "\\static\\data"
   ],
   "SelectedNode": "\\guidance",
   "PreviewInSolutionExplorer": false
